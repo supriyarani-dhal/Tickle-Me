@@ -35,5 +35,12 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-ZOD
-Resend email
+next js - Next.js is a fullstack(it combines front-end and back-end capabilities in one framework) open-source web development framework built on top of React, designed to enable developers to create fast, scalable, and SEO-friendly web applications. It was developed by Vercel (formerly known as Zeit).
+
+ZOD - Zod is a TypeScript-first or javascript schema declaration and validation library. It provides a way to define, parse, and validate data in both JavaScript and TypeScript applications.
+
+Resend email - Resend is an email API service/email sending platform designed to simplify the process of sending transactional and marketing emails for developers.
+
+React email - React Email is a framework for building and sending email templates using React components.it can integrat with existing React or Node.js applications or email sending platforms like Resend, Mailchimp, or SendGrid.
+
+Auth.js - Auth.js (formerly known as NextAuth.js) is a popular authentication library designed for Next.js applications, but it can also be used with other frameworks.
