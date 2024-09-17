@@ -1,4 +1,4 @@
-import { NextAuthOptions } from "next-auth";
+import { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import connectDB from "@/lib/dbConnect";
@@ -7,7 +7,7 @@ import { pages } from "next/dist/build/templates/app-page";
 import { signIn } from "next-auth/react";
 import { Session } from "inspector/promises";
 
-export const authOptions: NextAuthOptions = {
+export const options: AuthOptions = {
   providers: [
     CredentialsProvider({
       id: "credentials",
@@ -55,6 +55,29 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
+  callbacks: {
+    async session({ session, token }: { session: any; token: any }) {
+      //extract all the basic details of the session user from this token
+      if (token) {
+        session.user._id = token._id;
+        session.user.isVerified = token.isVerified;
+        session.user.isMessageAccepting = token.isMessageAccepting;
+        session.user.userName = token.userName;
+      }
+
+      return session;
+    },
+    async jwt({ token, user }: { token: any; user: any }) {
+      //extract that details from the user
+      if (user) {
+        token._id = user._id.toString();
+        token.isVerified = user.isVerified;
+        token.isMessageAccepting = user.isMessageAccepting;
+        token.userName = user.userName;
+      }
+      return token;
+    },
+  },
   pages: {
     signIn: "/sign-in",
   },
