@@ -14,8 +14,7 @@ import { verifySchema } from "@/schemas/verifySchema";
 import { ApiResponse } from "@/types/apiResponse";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios, { AxiosError } from "axios";
-import { useParams } from "next/navigation";
-import { useRouter } from "next/router";
+import { useParams, useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -47,7 +46,7 @@ const VerifyAccount = () => {
         description: (await response).data.message,
       });
 
-      router.replace("sign-in");
+      router.replace("/sign-in");
     } catch (error) {
       console.error("Error in verifying the user ", error);
       const axiosError = error as AxiosError<ApiResponse>;

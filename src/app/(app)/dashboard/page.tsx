@@ -124,6 +124,10 @@ const page = () => {
     }
   };
 
+  if (!session || !session.user) {
+    return <div>Please Login</div>;
+  }
+
   const { name } = session?.user as User;
   //TODO: do more research on finding base url
   const baseUrl = `${window.location.protocol}//${window.location.host}`;
@@ -137,9 +141,6 @@ const page = () => {
       description: "Profile URL has been copied to clipboard",
     });
   };
-  if (!session || !session.user) {
-    return <div>Please Login</div>;
-  }
 
   return (
     <div className="my-8 mx-4 md:mx-8 lg:mx-auto p-6 bg-white rounded w-full max-w-6xl">
