@@ -12,7 +12,7 @@ export async function GET(request: Request) {
 
   try {
     const { searchParams } = new URL(request.url);
-    //get our required field(in an object form) from the entile url
+    //get our required field(in an object form) from the entire url
     const queryParam = {
       userName: searchParams.get("userName"),
     };
@@ -20,7 +20,6 @@ export async function GET(request: Request) {
     //validate the queryParam object with zod
     //the safeParse() checks whether the queryParam safely passes through the usernameQuerySchema or not.
     const result = usernameQuerySchema.safeParse(queryParam);
-    console.log(result); //TODO: remove
 
     if (!result.success) {
       const usernameErrors = result.error.format().userName?._errors || [];

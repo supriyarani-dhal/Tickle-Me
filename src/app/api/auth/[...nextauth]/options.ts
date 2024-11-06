@@ -15,7 +15,11 @@ export const options: AuthOptions = {
 
       //credentials creates html document behind the scene for different authentication providers like github , email or linkedin etc
       credentials: {
-        email: { label: "Email", type: "text", placeholder: "Enter email" },
+        identifier: {
+          label: "Email or Username",
+          type: "text",
+          placeholder: "Enter email",
+        },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials: any): Promise<any> {
@@ -25,7 +29,8 @@ export const options: AuthOptions = {
           const user = await userModel.findOne({
             $or: [
               { email: credentials.identifier },
-              { password: credentials.identifier },
+              { userName: credentials.identifier },
+              { password: credentials.password },
             ],
           });
 

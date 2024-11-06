@@ -10,7 +10,6 @@ import { useRouter } from "next/navigation";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -20,8 +19,11 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { signinSchema } from "@/schemas/signinSchema";
 import { signIn } from "next-auth/react";
+import { Loader2 } from "lucide-react";
+import { useState } from "react";
 
 const page = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   const router = useRouter();
 
@@ -35,13 +37,16 @@ const page = () => {
   });
 
   const onSubmit = async (data: z.infer<typeof signinSchema>) => {
+    setIsSubmitting(true);
     const result = await signIn("credentials", {
       redirect: false,
       identifier: data.identifier,
       password: data.password,
     });
+    console.log(result);
 
     if (result?.error) {
+      setIsSubmitting(false);
       toast({
         title: "Login failed",
         description: "Incorrect username or password",
@@ -50,6 +55,7 @@ const page = () => {
     }
 
     if (result?.url) {
+      setIsSubmitting(false);
       router.replace("/dashboard");
     }
   };
@@ -94,14 +100,22 @@ const page = () => {
                 </FormItem>
               )}
             />
-            <Button type="submit">Signin</Button>
+            <Button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please wait
+                </>
+              ) : (
+                "Sign in"
+              )}
+            </Button>
           </form>
         </Form>
         <div className="text-center mt-4">
           <p>
-            Already a member?{" "}
-            <Link href="/sign-in" className="text-blue-600 hover:text-blue-800">
-              Sign in
+            New to Tickle-Me?{" "}
+            <Link href="/sign-up" className="text-blue-600 hover:text-blue-800">
+              Sign up
             </Link>
           </p>
         </div>

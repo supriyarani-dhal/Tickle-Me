@@ -24,7 +24,7 @@ export async function GET(request: Request) {
   }
 
   //the userId was in string format previously , so we have to convert that in it's orignal format
-  const userId = new mongoose.Types.ObjectId(user.id);
+  const userId = new mongoose.Types.ObjectId((user as any)._id);
 
   try {
     const user = await userModel.aggregate([

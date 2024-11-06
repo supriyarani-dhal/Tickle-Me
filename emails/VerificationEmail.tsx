@@ -7,6 +7,7 @@ import {
   Row,
   Section,
   Text,
+  Button,
 } from "@react-email/components";
 
 interface VerificationEmailProps {
@@ -27,7 +28,7 @@ export default function VerificationEmail({
           fallbackFontFamily="Verdana"
           webFont={{
             url: "https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2",
-            format: "woff",
+            format: "woff2",
           }}
           fontWeight={400}
           fontStyle="normal"
@@ -51,6 +52,14 @@ export default function VerificationEmail({
           <Text>
             If you didn not request this code , please ignore this email.
           </Text>
+        </Row>
+        <Row>
+          <Button
+            href={`http://localhost:3000/verify/${userName}`}
+            style={{ color: "#61dafb" }}
+          >
+            Verify Here
+          </Button>
         </Row>
       </Section>
     </Html>

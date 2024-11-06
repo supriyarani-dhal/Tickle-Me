@@ -50,6 +50,7 @@ const page = () => {
       setValue("acceptMessages", response.data.isAcceptingMessages);
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>;
+
       toast({
         title: "Error",
         description:
@@ -109,7 +110,7 @@ const page = () => {
 
       setValue("acceptMessages", !acceptMessages);
       toast({
-        title: response.data.messages,
+        title: response.data.message,
         variant: "default",
       });
     } catch (error) {
@@ -128,10 +129,11 @@ const page = () => {
     return <div>Please Login</div>;
   }
 
-  const { name } = session?.user as User;
+  const { userName } = session?.user as { userName: string };
+
   //TODO: do more research on finding base url
   const baseUrl = `${window.location.protocol}//${window.location.host}`;
-  const profileUrl = `${baseUrl}/u/${name}`;
+  const profileUrl = `${baseUrl}/u/${userName}`;
 
   //the navigator object only be accessed from frontend(client side) not from server side
   const copyToClipboard = () => {
@@ -188,7 +190,7 @@ const page = () => {
       </Button>
       <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
         {messages.length > 0 ? (
-          messages.map((message, index) => (
+          messages.map((message) => (
             <MessageCard
               key={message._id}
               message={message}

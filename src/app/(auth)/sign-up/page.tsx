@@ -78,6 +78,7 @@ const page = () => {
         title: "Success",
         description: response.data.message,
       });
+
       //send verification code to the user's registered email
       router.replace(`verify/${userName}`);
     } catch (error) {

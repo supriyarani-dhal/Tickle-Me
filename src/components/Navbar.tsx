@@ -11,6 +11,7 @@ const Navbar = () => {
 
   //user take data from session instead of taking from "data" defined above ??? as per the documentation😂
   const user: User = session?.user as User;
+
   return (
     <nav className="p-4 md:p-6 shadow-md">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
@@ -19,7 +20,9 @@ const Navbar = () => {
         </a>
         {session ? (
           <>
-            <span className="mr-4">Welcome, {user?.name || user?.email}</span>
+            <span className="mr-4">
+              Welcome, {user?.userName || user?.email}
+            </span>
             <Button className="w-full md:w-auto" onClick={() => signOut()}>
               Logout
             </Button>
