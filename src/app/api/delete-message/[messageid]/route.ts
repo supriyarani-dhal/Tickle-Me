@@ -30,7 +30,7 @@ export async function DELETE(
 
   try {
     const updateResult = await userModel.updateOne(
-      { _id: user._id },
+      { _id: (user as any)._id },
       { $pull: { messages: { _id: messageId } } }
     );
 
