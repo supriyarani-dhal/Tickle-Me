@@ -52,3 +52,5 @@ shadcn ui - This is NOT a component library(you don't have to install any packag
 usehooks-ts = useHooks(🔥).ts is a React hooks library, written in Typescript and easy to use.It is fully tree-shakable (using the ESM version), meaning that you only import the hooks you need, and the rest will be removed from your bundle making the cost of using this library negligible.
 
 react-hook-form - react-hook-form is a popular library for managing forms in React applications. It simplifies the process of handling form validation, submission, and managing form state without needing to rely heavily on component re-renders.
+
+dayjs() - Day.js is a minimalist JavaScript library that parses, validates, manipulates, and displays dates and times for modern browsers

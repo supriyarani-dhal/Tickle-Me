@@ -61,16 +61,16 @@ const page = () => {
     } finally {
       setIsSwitchLoading(false);
     }
-  }, [setValue]);
+  }, [setValue, toast]);
 
   //this funtion is fetching all the messages
   const fetchMessages = useCallback(
     async (refresh: boolean = false) => {
+      setIsloading(true);
+      setIsSwitchLoading(true);
       try {
-        setIsloading(true);
-        setIsSwitchLoading(true);
         const response = await axios.get("/api/get-messages");
-        setMessages(response.data.message || []);
+        setMessages(response?.data?.messages || []);
 
         if (refresh) {
           toast({
@@ -92,14 +92,14 @@ const page = () => {
         setIsSwitchLoading(false);
       }
     },
-    [setIsloading, setMessages]
+    [setIsloading, setMessages, toast]
   );
 
   useEffect(() => {
     if (!session || !session.user) return;
     fetchAcceptMessage();
     fetchMessages();
-  }, [session, setValue, fetchAcceptMessage, fetchMessages]);
+  }, [session, setValue, fetchAcceptMessage, fetchMessages, toast]);
 
   //handle switch change
   const handleSwitchChange = async () => {
@@ -190,7 +190,7 @@ const page = () => {
       </Button>
       <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
         {messages.length > 0 ? (
-          messages.map((message) => (
+          messages.map((message, index) => (
             <MessageCard
               key={message._id}
               message={message}

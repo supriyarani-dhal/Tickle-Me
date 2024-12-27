@@ -4,7 +4,7 @@ type connectionObject = {
   isConnected?: number;
 };
 
-//the property "isConnected" is option , so the variable connection can be empty also
+//the property "isConnected" is optional , so the variable connection can be empty also
 const connection: connectionObject = {};
 
 async function connectDB(): Promise<void> {

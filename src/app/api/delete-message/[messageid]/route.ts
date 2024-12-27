@@ -9,6 +9,7 @@ export async function DELETE(
   request: Request,
   { params }: { params: { messageid: string } }
 ) {
+  //get the id of the message to be deleted
   const messageId = params.messageid;
   await connectDB();
 
@@ -29,18 +30,18 @@ export async function DELETE(
 
   try {
     const updateResult = await userModel.updateOne(
-      { _id: user.id },
+      { _id: user._id },
       { $pull: { messages: { _id: messageId } } }
     );
 
-    if (updateResult.modifiedCount) {
+    if (updateResult.modifiedCount === 0) {
       return Response.json(
         {
           success: false,
           message: "Message not found or have already deleted",
         },
         {
-          status: 401,
+          status: 404,
         }
       );
     }

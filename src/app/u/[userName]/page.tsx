@@ -52,7 +52,7 @@ const SendMessage = () => {
     initialCompletion: defaultMessageString,
   });
 
-  //to define the type of the form and check the validation od the form content by the help of zod
+  //to define the type of the form and check the validation of the form content by the help of zod
   const form = useForm<z.infer<typeof messageSchema>>({
     resolver: zodResolver(messageSchema),
   });
