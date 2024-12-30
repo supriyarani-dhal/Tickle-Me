@@ -22,7 +22,6 @@ export async function POST(req: Request) {
       model: google("gemini-1.5-flash"),
       prompt,
     });
-
     return result.toDataStreamResponse();
     // Print text as it comes in.//todo: add this part to the frontend
     // for await (const chunk of result.stream) {
