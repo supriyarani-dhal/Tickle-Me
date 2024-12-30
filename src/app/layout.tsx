@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 import AuthProvider from "@/context/AuthProvider";
-
+import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,6 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <link rel="manifest" href="../../public/manifest.json" />
+        <meta name="theme-color" content="#ffffff" />
+        <link rel="apple-touch-icon" href="../../public/tickle-me.png" />
+      </Head>
       <AuthProvider>
         <body className={inter.className}>
           <Navbar />

@@ -1,0 +1,26 @@
+{
+  "name": "Tickle Me",
+  "short_name": "TickleMe",
+  "description": "An anonymous conversation app where identity remains a secret.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/tickle-me.png",
+      "sizes": "733x583",
+      "type": "image/png"
+    },
+    {
+      "src": "/tickle-me.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/tickle-me.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
