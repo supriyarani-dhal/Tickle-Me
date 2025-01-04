@@ -8,7 +8,7 @@ const google = createGoogleGenerativeAI({
   apiKey: process.env.GENAI_API_KEY,
 });
 
-export const runtime = "edge";
+//export const runtime = "edge";
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
@@ -23,11 +23,6 @@ export async function POST(req: Request) {
       prompt,
     });
     return result.toDataStreamResponse();
-    // Print text as it comes in.//todo: add this part to the frontend
-    // for await (const chunk of result.stream) {
-    //   const chunkText = chunk.text();
-    //   process.stdout.write(chunkText);
-    // }
   } catch (error) {
     if (error instanceof OpenAI.APIError) {
       // OpenAI API error handling
