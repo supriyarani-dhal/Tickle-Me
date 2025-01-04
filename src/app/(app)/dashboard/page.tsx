@@ -138,6 +138,7 @@ const page = () => {
   //the navigator object only be accessed from frontend(client side) not from server side
   const copyToClipboard = () => {
     navigator.clipboard.writeText(profileUrl);
+    console.log("copied");
     toast({
       title: "URL copied",
       description: "Profile URL has been copied to clipboard",

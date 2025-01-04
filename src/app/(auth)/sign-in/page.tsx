@@ -43,7 +43,6 @@ const page = () => {
       identifier: data.identifier,
       password: data.password,
     });
-    console.log(result);
 
     if (result?.error) {
       setIsSubmitting(false);
