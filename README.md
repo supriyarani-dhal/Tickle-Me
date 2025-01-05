@@ -1,6 +1,49 @@
+# Tickle Me
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Demo
+
+see this live at here - https://tickle-me.vercel.app/
+
+## Features
+
+- Signup/ Login through verification code via email
+- The user can fetch all the messages coming from anyone
+- The user's unique link can be copied by clipboard and anyone can message the user via this link .
+- the user can fetch all the messages but can't know who is the sender.
+- Someone can also takes help of the AI for generating the messages .
+
+## Tech Stack
+
+**In this Next.js application, the frontend and backend are tightly integrated within the same project.**
+
+**frontend:** defined under the _app_ directory
+
+**backend:** in the app/api directory
+
+**Deployment:** [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
+
+**Others:**
+
+- for email verification : nodemailer and [react email](https://react.email/docs/integrations/nodemailer)
+- for authentication , [NextAuth.js](https://next-auth.js.org/providers/credentials)
+- for ui design [shadcn ui](https://ui.shadcn.com/)
+- Google's generative AI api
+
+## Screenshots
+
+![Tickle me](https://github.com/supriyarani-dhal/Tickle-Me/blob/main/public/tickle-me.png)
+
+## Feedback
+
+If you have any feedback, please reach out to us at supriyadhal50@gmail.com
+
+## Made by
+
+- [@supriyarani-dhal](https://github.com/supriyarani-dhal)
+
+## Run Locally
 
 First, run the development server:
 
@@ -15,22 +58,3 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
