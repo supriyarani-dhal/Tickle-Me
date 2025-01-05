@@ -8,6 +8,7 @@ import {
   Section,
   Text,
   Button,
+  Img,
 } from "@react-email/components";
 
 interface VerificationEmailProps {
@@ -36,6 +37,12 @@ export default function VerificationEmail({
       </Head>
       <Preview>Here&apos;s yourverification code: {otp}</Preview>
       <Section>
+        <Img
+          src={"../public/tickle-me.png"}
+          width="75"
+          height="45"
+          alt="Tickle Me's logo"
+        />
         <Row>
           <Heading as="h2">Hello {userName},</Heading>
         </Row>
